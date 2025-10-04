@@ -78,17 +78,17 @@ def main(
     except Exception as e:
         print(f"{e}\n")
         print(
-            f"{model} is not recognized, please choose from human-mt,"
-            + " yeast, and e_coli."
+            f"{model} is not recognized, please choose from"
+            + " yeast and e_coli."
         )
         return None
-
+    print(f"{ref=}")
     # Construct a bam header and reference sequence lookup dict based on the
     # selected model
     bam_header, ref_dict = process_ref(
         ref, (program_name, version, program_name, sys.argv)
     )
-
+    print(ref_dict)
     # Inference dict includes information for each read about the highest probablity
     # class, the indicies for tRNA in signal space, and if this is a training or
     # validation dataset it adds a ground truth label ('gt').
